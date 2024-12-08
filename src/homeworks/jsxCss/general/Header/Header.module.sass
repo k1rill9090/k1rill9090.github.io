@@ -1,15 +1,11 @@
-.header-light
-    position: sticky
-    top: 0
-    width: 100%
-    background-color: #e5f7fee8
+@import "src/app/App.sass"
 
-.header-dark
+.header
     position: sticky
     top: 0
     width: 100%
-    background-color: #585858e8
-    color: white
+    hr
+        margin: 0
 
 .headerContent
     display: flex
@@ -17,15 +13,34 @@
     padding-top: 1rem
     padding-left: 3rem
     padding-bottom: 1rem
-
-.header hr
-    margin: 0
+    +theme(background-color, bgHeader)
+    +theme(color, text)
     
 .children
+    margin-left: 20px
     display: flex
     flex-direction: row
     align-items: center
+    gap: 20px
+    width: 300px
     // padding: 10px
+    +theme(color, text)
+
+.link
+    text-decoration: none
+    color: black
+    height: 22px
+    width: 80px
+    text-align: center
+    +theme(color, text)
+    &:hover
+        border-bottom: 3px solid #5959597a
+    
+.active
+    border-bottom: 3px solid #535353
+    font-weight: 500
+    
+    
 
 .logo
     margin-right: 100px

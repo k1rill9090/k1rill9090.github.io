@@ -6,14 +6,12 @@ import { useTheme } from '../ThemeSwitcher/ThemeContext/ThemeContext';
 import clsx from 'clsx';
 import { useObserver } from './useObserver';
 
-interface ListOfGoodsProps {
-  goods: Array<Product>;
-}
 
-const ListOfGoods: FC<ListOfGoodsProps> = ({ goods }) => {
+
+const ListOfGoods = () => {
   const { theme } = useTheme();
 
-  const [goodsArr, setGoodsArr] = useState(goods);
+  const [goodsArr, setGoodsArr] = useState([]);
   const addGood = () => {
     const newGood = createRandomProduct('28.10.2024');
     setGoodsArr([...goodsArr, newGood]);
@@ -24,14 +22,14 @@ const ListOfGoods: FC<ListOfGoodsProps> = ({ goods }) => {
   useObserver(lastElem, addGood, goodsArr);
 
   return (
-    <div className={styles[`background-${theme}`]}>
+    <div >
       <h2>Список товаров</h2>
       <div>
         {goodsArr.map((p) => (
           <ShortCardGood key={p.id} sum={p.price} img={p.photo} name={p.name} desc={p.desc} theme={theme} />
         ))}
       </div>
-      <button className={clsx([styles.btn, styles[`btn-${theme}`]])} onClick={() => addGood()}>
+      <button className={clsx([styles.btn])} onClick={() => addGood()}>
         Показать еще
       </button>
       <div ref={lastElem} className={styles.observerDiv}></div>

@@ -8,12 +8,12 @@ interface ShortCardGoodProps {
   img: string;
   name: string;
   desc: string;
-  theme: string;
+  theme?: string;
 }
 
 const ShortCardGood: FC<ShortCardGoodProps> = ({ ...props }) => {
   return (
-    <div className={clsx(styles.mainContent, styles[`mainContent-${props.theme}`])}>
+    <div className={clsx(styles.mainContent)}>
       <img src={props.img} alt="фото товара" />
       <div className={styles.goodsInfo}>
         <span>{props.name}</span>

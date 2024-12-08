@@ -1,0 +1,24 @@
+@import "src/app/App.sass"
+.mainContent
+    // border: 2px solid black
+    display: flex
+    flex-direction: column
+    max-width: 60%
+    padding: 10px 60px
+    // border-radius: 5px
+    margin: 0 auto
+    text-align: center
+    padding-top: 50px
+
+.addProductButton
+    width: 500px
+    border: 1px solid
+    border-radius: 5px
+    background-color: #ffffff
+    padding: 10px
+    font-size: 14px
+    +theme(background-color, mainBg)
+    +theme(color, text)
+    &:hover
+        cursor: pointer
+        +theme(background-color, bg)
